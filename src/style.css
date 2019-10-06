@@ -9,8 +9,14 @@
 }
 
 .container {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.search-bar {
+  margin: 0 auto;
+  max-width: 80%;
   overflow: hidden;
 }
 
@@ -19,27 +25,27 @@
 }
 
 .search-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  margin: 0 auto;
+  max-width: 80%;
+  overflow: hidden;
 }
 
-.search-result div {
+.album-items {
   float: left;
-  overflow: hidden;
 }
 
 .search-result ul {
   width: 100%;
-  float: left;
+  margin: 0;
+  padding: 0;
   min-height: 225px;
+  list-style: none;
 }
 
 .search-result ul li {
-  list-style: none;
   float: left;
   text-align: center;
-  padding: 0 65px 0 0;
+  padding: 0 50px 0 0;
 }
 
 .album-cover {
