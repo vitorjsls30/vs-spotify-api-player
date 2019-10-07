@@ -6,6 +6,31 @@
   border: none;
   outline: none;
   font-family: 'Roboto', sans-serif;
+  background-color: #161616;
+}
+
+.main-text {
+  color: #FAFAFA;
+}
+
+.secondary-text {
+  color: #999999;
+}
+
+.section-title {
+  font-size: 18px;
+  color: #FAFAFA;
+  margin-bottom: 40px;
+}
+
+.album-name {
+  font-size: 16px;
+  color: #FAFAFA;
+}
+
+.artist-name {
+  font-size: 14px;
+  color: #999999;
 }
 
 .container {
@@ -20,18 +45,26 @@
   overflow: hidden;
 }
 
+.search-holder {
+  margin-top: 60px;
+  border-bottom: solid 2px #999999;
+}
+
 .search-bar input {
   width: 100%;
+  font-size: 48px; 
+  font-weight: bold;
 }
 
 .search-result {
-  margin: 0 auto;
+  padding: 0 10%;
   max-width: 80%;
   overflow: hidden;
 }
 
 .album-items {
   float: left;
+  margin-top: 60px;
 }
 
 .search-result ul {
