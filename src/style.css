@@ -17,7 +17,7 @@
   color: #999999;
 }
 
-/* Sidebar */
+/* sidebar */
 
 .sidebar {
   width: 10%; 
@@ -40,7 +40,7 @@
   overflow: hidden;
 }
 
-/* Search Bar */
+/* search bar */
 
 .search-bar {
   margin: 0 auto;
@@ -59,7 +59,7 @@
   font-weight: bold;
 }
 
-/* Search Result */
+/* search result */
 
 .search-result {
   padding: 0 10%;
@@ -74,7 +74,6 @@
 }
 
 .album-items {
-  float: left;
   margin-top: 60px;
 }
 
@@ -89,21 +88,65 @@
 }
 
 .search-result ul {
+  display: flex;
   width: 100%;
   margin: 0;
   padding: 0;
   min-height: 225px;
   list-style: none;
+  flex-direction: row;
+  justify-content: space-around;
+  overflow-x: auto;
+}
+
+.search-result ul::-webkit-scrollbar {
+  display: none;
 }
 
 .search-result ul li {
   float: left;
   text-align: center;
-  padding: 0 50px 0 0;
 }
 
 .album-cover {
   background-color: #FAFAFA;
   width: 180px;
   height: 180px;
-} 
+}
+
+/* media types */
+@media screen and (min-width: 375px) {
+  .logo {
+    margin: 15px 15px;
+    width: 35px;
+    height: 35px;
+    background: #FFFFFF url(../assets/spotify-logo.svg) center center/2.3em no-repeat;
+  }
+
+  .search-bar input {
+    font-size: 24px; 
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .search-result ul {
+    min-height: 0;
+    justify-content: space-between;
+  }
+
+  .search-result ul li{
+    padding: 0 17px 0 0;
+  }
+
+  .album-items {
+    margin-top: 30px;
+    overflow: hidden;
+  }
+
+  .album-cover {
+    width: 90px;
+    height: 90px;
+  }
+}
