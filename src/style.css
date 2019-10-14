@@ -131,12 +131,12 @@
     font-size: 16px;
   }
 
-  .album-items ul {
+  .album-items ul.horizontal-display {
     min-height: 0;
     justify-content: space-between;
   }
 
-  .album-items ul li{
+  .album-items ul.horizontal-display li{
     padding: 0 17px 0 0;
   }
 
@@ -148,5 +148,14 @@
   .album-cover {
     width: 90px;
     height: 90px;
+  }
+
+  .items-block ul.vertical-display {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+
+  .items-block ul.vertical-display li {
+    text-align: left;
   }
 }
