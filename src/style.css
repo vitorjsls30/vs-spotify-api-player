@@ -61,7 +61,7 @@
 
 /* search result */
 
-.search-result {
+.album-items {
   padding: 0 10%;
   max-width: 80%;
   overflow: hidden;
@@ -73,7 +73,7 @@
   margin-bottom: 40px;
 }
 
-.album-items {
+.items-block {
   margin-top: 60px;
 }
 
@@ -87,7 +87,7 @@
   color: #999999;
 }
 
-.search-result ul {
+.album-items ul {
   display: flex;
   width: 100%;
   margin: 0;
@@ -99,11 +99,11 @@
   overflow-x: auto;
 }
 
-.search-result ul::-webkit-scrollbar {
+.album-items ul::-webkit-scrollbar {
   display: none;
 }
 
-.search-result ul li {
+.album-items ul li {
   float: left;
   text-align: center;
 }
@@ -131,16 +131,16 @@
     font-size: 16px;
   }
 
-  .search-result ul {
+  .album-items ul {
     min-height: 0;
     justify-content: space-between;
   }
 
-  .search-result ul li{
+  .album-items ul li{
     padding: 0 17px 0 0;
   }
 
-  .album-items {
+  .items-block {
     margin-top: 30px;
     overflow: hidden;
   }
