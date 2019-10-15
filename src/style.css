@@ -9,6 +9,12 @@
   background-color: #161616;
 }
 
+ul {
+  display: flex;
+  padding: 0;
+  margin:0;
+}
+
 .main-text {
   color: #FAFAFA;
 }
@@ -70,7 +76,6 @@
 .section-title {
   font-size: 18px;
   color: #FAFAFA;
-  margin-bottom: 40px;
 }
 
 .items-block {
@@ -94,12 +99,10 @@
 }
 
 ul.horizontal-display {
-  display: flex;
-  margin: 0;
-  padding: 0;
   flex-direction: row;
   justify-content: space-around;
   overflow-x: auto;
+  margin-top: 40px;
 }
 
 ul.horizontal-display li {
@@ -111,7 +114,15 @@ ul.horizontal-display::-webkit-scrollbar {
   display: none;
 }
 
-ul.list-item li div{
+ul.vertical-display {
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  max-height: 200px;
+  margin-top: 20px;
+}
+
+ul.vertical-display li div{
   display: flex;
   margin-top: 10px;
 }
