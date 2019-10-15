@@ -13,6 +13,7 @@ ul {
   display: flex;
   padding: 0;
   margin:0;
+  list-style: none;
 }
 
 .main-text {
@@ -98,33 +99,20 @@ ul {
   height: 180px;
 }
 
-ul.horizontal-display {
+.items-block ul {
   flex-direction: row;
   justify-content: space-around;
   overflow-x: auto;
   margin-top: 40px;
 }
 
-ul.horizontal-display li {
+.items-block li {
   float: left;
   text-align: center;
 }
 
-ul.horizontal-display::-webkit-scrollbar {
+.items-block ul::-webkit-scrollbar {
   display: none;
-}
-
-ul.vertical-display {
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: auto;
-  max-height: 200px;
-  margin-top: 20px;
-}
-
-ul.vertical-display li div{
-  display: flex;
-  margin-top: 10px;
 }
 
 .album-detail {
@@ -135,7 +123,7 @@ ul.vertical-display li div{
 }
 
 /* media types */
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 375px) {
   .logo {
     margin: 15px 15px;
     width: 35px;
@@ -151,17 +139,30 @@ ul.vertical-display li div{
     font-size: 16px;
   }
 
-  ul.horizontal-display {
-    justify-content: space-between;
-  }
-
-  ul.horizontal-display li{
-    padding: 0 17px 0 0;
-  }
-
   .items-block {
     margin-top: 30px;
     overflow: hidden;
+  }
+
+  .items-block ul {
+    justify-content: space-between;
+  }
+
+  .items-block li{
+    padding: 0 17px 0 0;
+  }
+
+  ul.search-result {
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    max-height: 200px;
+    margin-top: 20px;
+  }
+  
+  ul.search-result li div{
+    display: flex;
+    margin-top: 10px;
   }
 
   .album-cover {
