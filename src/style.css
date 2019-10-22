@@ -123,7 +123,7 @@ ul {
 }
 
 /* media types */
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   .logo {
     margin: 15px 15px;
     width: 35px;
@@ -168,5 +168,20 @@ ul {
   .album-cover {
     width: 90px;
     height: 90px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section-title {
+    font-size: 20px;
+  }
+
+  .album-cover {
+    width: 140px;
+    height: 140px;
+  }
+
+  ul.search-result {
+    max-height: 300px;
   }
 }
