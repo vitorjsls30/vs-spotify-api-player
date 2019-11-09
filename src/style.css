@@ -34,10 +34,10 @@ ul {
 }
 
 .logo {
-  margin: 20px 20px;
-  width: 50px;
-  height: 50px;
-  background: #FFFFFF url(../assets/spotify-logo.svg) center center/3.3em no-repeat;
+  margin: 15px 15px;
+  width: 35px;
+  height: 35px;
+  background: #FFFFFF url(../assets/spotify-logo.svg) center center/2.3em no-repeat;
   border-radius: 50%;
 }
 
@@ -62,25 +62,44 @@ ul {
 
 .search-bar input {
   width: 100%;
-  font-size: 48px; 
+  font-size: 24px; 
   font-weight: bold;
 }
 
-/* album items */
+/* section album */
 
-.album-items {
+.section-album {
   padding: 0 10%;
   max-width: 80%;
   overflow: hidden;
 }
 
 .section-title {
-  font-size: 18px;
+  font-size: 16px;
   color: #FAFAFA;
 }
 
+.album-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: auto;
+  margin-top: 40px;
+}
+
+.album-container div {
+  float: left;
+  text-align: center;
+  padding: 0 17px 0 0;
+}
+
+.album-container::-webkit-scrollbar {
+  display: none;
+}
+
 .items-block {
-  margin-top: 60px;
+  margin-top: 30px;
+  overflow: hidden;
 }
 
 .album-name {
@@ -95,23 +114,24 @@ ul {
 
 .album-cover {
   background-color: #FAFAFA;
-  width: 180px;
-  height: 180px;
+  width: 90px;
+  height: 90px;
 }
 
-.items-block ul {
-  flex-direction: row;
-  justify-content: space-around;
-  overflow-x: auto;
-  margin-top: 40px;
+.search-result {
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  max-height: 200px;
+  margin-top: 20px;
 }
 
-.items-block li {
-  float: left;
-  text-align: center;
+.search-result div{
+  display: flex;
+  margin-top: 10px;
 }
 
-.items-block ul::-webkit-scrollbar {
+.search-result::-webkit-scrollbar {
   display: none;
 }
 
@@ -123,54 +143,6 @@ ul {
 }
 
 /* media types */
-@media screen and (min-width: 375px) {
-  .logo {
-    margin: 15px 15px;
-    width: 35px;
-    height: 35px;
-    background: #FFFFFF url(../assets/spotify-logo.svg) center center/2.3em no-repeat;
-  }
-
-  .search-bar input {
-    font-size: 24px; 
-  }
-
-  .section-title {
-    font-size: 16px;
-  }
-
-  .items-block {
-    margin-top: 30px;
-    overflow: hidden;
-  }
-
-  .items-block ul {
-    justify-content: space-between;
-  }
-
-  .items-block li{
-    padding: 0 17px 0 0;
-  }
-
-  ul.search-result {
-    flex-direction: column;
-    justify-content: flex-start;
-    overflow-y: auto;
-    max-height: 200px;
-    margin-top: 20px;
-  }
-  
-  ul.search-result li div{
-    display: flex;
-    margin-top: 10px;
-  }
-
-  .album-cover {
-    width: 90px;
-    height: 90px;
-  }
-}
-
 @media screen and (min-width: 768px) {
   .section-title {
     font-size: 20px;
