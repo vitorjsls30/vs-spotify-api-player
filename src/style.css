@@ -126,9 +126,9 @@ ul {
   margin-top: 20px;
 }
 
-.search-result div{
+.search-item{
   display: flex;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .search-result::-webkit-scrollbar {
@@ -144,6 +144,10 @@ ul {
 
 /* media types */
 @media screen and (min-width: 768px) {
+  .album-container {
+    margin-top: 20px;
+  }
+
   .section-title {
     font-size: 20px;
   }
@@ -153,7 +157,26 @@ ul {
     height: 140px;
   }
 
-  ul.search-result {
-    max-height: 300px;
+  .search-result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-height: 372px;
   }
+
+  .search-item {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album-detail {
+    margin: 0 0;
+    text-align: center;
+  }
+
+  
 }
