@@ -177,6 +177,20 @@ ul {
     margin: 0 0;
     text-align: center;
   }
+}
 
-  
+@media screen and (min-width: 960px) {
+  .album-cover {
+    width: 180px;
+    height: 180px;
+  }
+
+  .search-result {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .search-item {
+    padding: 0 17px 0 0;
+  }
 }
