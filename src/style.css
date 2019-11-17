@@ -6,44 +6,191 @@
   border: none;
   outline: none;
   font-family: 'Roboto', sans-serif;
+  background-color: #161616;
+}
+
+ul {
+  display: flex;
+  padding: 0;
+  margin:0;
+  list-style: none;
+}
+
+.main-text {
+  color: #FAFAFA;
+}
+
+.secondary-text {
+  color: #999999;
+}
+
+/* sidebar */
+
+.sidebar {
+  width: 10%; 
+  height: 100%; 
+  float: left; 
+  position: absolute
+}
+
+.logo {
+  margin: 15px 15px;
+  width: 35px;
+  height: 35px;
+  background: #FFFFFF url(../assets/spotify-logo.svg) center center/2.3em no-repeat;
+  border-radius: 50%;
 }
 
 .container {
-  width: 80%;
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
   overflow: hidden;
+}
+
+/* search bar */
+
+.search-bar {
+  margin: 0 auto;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.search-holder {
+  margin-top: 60px;
+  border-bottom: solid 2px #999999;
 }
 
 .search-bar input {
   width: 100%;
+  font-size: 24px; 
+  font-weight: bold;
 }
 
-.search-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+/* section album */
 
-.search-result div {
-  float: left;
+.section-album {
+  padding: 0 10%;
+  max-width: 80%;
   overflow: hidden;
 }
 
-.search-result ul {
-  width: 100%;
-  float: left;
-  min-height: 225px;
+.section-title {
+  font-size: 16px;
+  color: #FAFAFA;
 }
 
-.search-result ul li {
-  list-style: none;
+.album-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow-x: auto;
+  margin-top: 40px;
+}
+
+.album-container div {
   float: left;
   text-align: center;
-  padding: 0 65px 0 0;
+  padding: 0 17px 0 0;
+}
+
+.album-container::-webkit-scrollbar {
+  display: none;
+}
+
+.items-block {
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.album-name {
+  font-size: 16px;
+  color: #FAFAFA;
+}
+
+.artist-name {
+  font-size: 14px;
+  color: #999999;
 }
 
 .album-cover {
   background-color: #FAFAFA;
-  width: 180px;
-  height: 180px;
-} 
+  width: 90px;
+  height: 90px;
+}
+
+.search-result {
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  max-height: 200px;
+  margin-top: 20px;
+}
+
+.search-item{
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.search-result::-webkit-scrollbar {
+  display: none;
+}
+
+.album-detail {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* media types */
+@media screen and (min-width: 768px) {
+  .album-container {
+    margin-top: 20px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .album-cover {
+    width: 140px;
+    height: 140px;
+  }
+
+  .search-result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    max-height: 372px;
+  }
+
+  .search-item {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album-detail {
+    margin: 0 0;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .album-cover {
+    width: 180px;
+    height: 180px;
+  }
+
+  .search-result {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .search-item {
+    padding: 0 17px 0 0;
+  }
+}
