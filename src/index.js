@@ -1,2 +1,8 @@
 import './style.css';
-console.log('yo!');
+
+const myFun = () => {
+    const name = 'vitor';
+    console.log('YO!!', name);
+}
+
+myFun();

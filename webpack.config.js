@@ -33,6 +33,13 @@ module.exports = {
             {
                 test: /\.svg$/,
                 use: 'file-loader'
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader"
+                }
             }
         ]
     }
