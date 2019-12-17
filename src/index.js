@@ -1,8 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Hello from './components/hello';
+
 import './style.css';
 
-const myFun = () => {
-    const name = 'vitor';
-    console.log('YO!!', name);
-}
-
-myFun();
+const wrapper = document.getElementById('root');
+wrapper ? ReactDOM.render(<Hello />, wrapper) : false;
