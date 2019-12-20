@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './components/hello';
+import SideBar from './components/SideBar';
+import SearchBar from './components/SearchBar';
+import AlbumSection from './components/AlbumSection';
 
 import './style.css';
 
 const wrapper = document.getElementById('root');
-wrapper ? ReactDOM.render(<Hello />, wrapper) : false;
+wrapper ? ReactDOM.render(<div>
+  <SideBar />
+  <SearchBar />
+  <AlbumSection />
+</div>, wrapper) : false;
