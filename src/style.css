@@ -161,7 +161,7 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 20px;
     max-height: 372px;
   }
@@ -191,6 +191,7 @@ ul {
   }
 
   .search-item {
+    width: 15%;
     padding: 0 17px 0 0;
   }
 }
