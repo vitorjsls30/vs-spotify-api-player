@@ -1,11 +1,11 @@
 import React from 'react';
 
-const AlbumItem = () => {
+const AlbumItem = (album) => {
     return(
         <div>
             <img className="album-cover" />
-            <p className="album-name">Nome do &aacute;lbum</p>
-            <p className="artist-name">Nome do artista</p>
+            <p className="album-name">{album.name}</p>
+            <p className="artist-name">{album.artist}</p>
           </div>
     );
 }
