@@ -1,4 +1,12 @@
+import spotifyApiWrapper from 'vs-spotify-api-wrapper';
+
+const wrapper = new spotifyApiWrapper({
+    clientId: 'a3909a54308c4cb780b07d305e797cb6',
+    redirectUri: 'http://localhost:8081'
+});
+
 export default {
+    wrapper,
     recentSearch: [
         {
             id: 0,

@@ -10,7 +10,8 @@ class AlbumSection extends React.Component {
 
     this.state = {
       recentSearch: [],
-      searchResult: []
+      searchResult: [],
+      wrapper: services.wrapper,
     };
   }
 
