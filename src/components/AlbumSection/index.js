@@ -9,22 +9,22 @@ class AlbumSection extends React.Component {
     super(props);
 
     this.state = {
-      recentSearch: []
+      recentSearch: [],
+      searchResult: []
     };
   }
 
   componentDidMount() {
-    this.setState({
-      recentSearch: services.recentSearch
-    });
+    const recentSearch = services.recentSearch;
+    const searchResult = services.searchResult;
+    this.setState({ recentSearch,searchResult });
   }
 
   render() {
-    const recentSearch = this.state.recentSearch;
     return(
       <section className="section-album">
-        <RecentSearch albums={ recentSearch }/>
-        <SearchResult />
+        <RecentSearch albums={ this.state.recentSearch }/>
+        <SearchResult albums={ this.state.searchResult } />
       </section>
     );
   }

@@ -1,12 +1,13 @@
 import React from 'react';
 
-const SearchItem = () => {
+const SearchItem = (props) => {
+    const { name, artist} = props.album;
     return(
         <div className="search-item">
             <img className="album-cover" />
             <div className="album-detail">
-              <p className="album-name">Nome do &aacute;lbum</p>
-              <p className="artist-name">Nome do artista</p>
+              <p className="album-name">{ name }</p>
+              <p className="artist-name">{ artist }</p>
             </div>
           </div>
     );
