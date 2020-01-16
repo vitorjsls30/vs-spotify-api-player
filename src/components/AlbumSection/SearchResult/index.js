@@ -2,6 +2,13 @@ import React from 'react';
 import SearchItem from './SearchItem';
 
 class SearchResult extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      visible: props.albums.length ? 'visible' : 'hidden'
+    }
+  }
   renderAlbums(albums) {
     if(albums.length) {
       return albums.map(album => {
@@ -10,12 +17,12 @@ class SearchResult extends React.Component {
         )
       });
     } else {
-      return(<div><p className="artist-name">No items searched...</p></div>)
+      return(<div><p className="artist-name">Nenhum resultado de busca...</p></div>)
     }
   }
   render() {
     return (
-      <div className="items-block">
+      <div className="items-block" style={{visibility: this.state.visible}}>
           <p className="section-title">Resultados para "Busca"</p>
           <div className="search-result">
             { this.renderAlbums(this.props.albums) }

@@ -1,48 +1,52 @@
-import React from 'react';
+import React from "react";
 
-import RecentSearch from './RecentSearch';
-import SearchResult from './SearchResult';
-import services from '../../services';
+import RecentSearch from "./RecentSearch";
+import SearchResult from "./SearchResult";
+import wrapperIntegration from "../../services";
 
 class AlbumSection extends React.Component {
   constructor(props) {
     super(props);
 
+    this.wrapper = new wrapperIntegration().wrapper;
+
     this.state = {
       recentSearch: [],
-      searchResult: [],
-      wrapper: services.wrapper
+      searchResult: []
     };
   }
 
   validateWrapper() {
-    const wrapper = this.state.wrapper;
+    const wrapper = this.wrapper;
     wrapper.session.getUriParams();
 
-    if(wrapper.session.checkTokenExpiration() || !wrapper.session.getoAuthState('access_token')) {
-        console.log('Authorizing....');
-        wrapper.session.authorize();
-      } else {
-        console.log('Authorized!');
-        // query a album example...
-        wrapper.album.getAlbum('04vtwsK3nygEjtLOecakQX').
-          then(data => console.log('Album Data', data));
-      }
+    if (
+      wrapper.session.checkTokenExpiration() ||
+      !wrapper.session.getoAuthState("access_token")
+    ) {
+      console.log("Authorizing....");
+      wrapper.session.authorize();
+    } else {
+      console.log("Authorized!");
+    }
   }
 
   componentDidMount() {
     this.validateWrapper();
 
-    const recentSearch = services.recentSearch;
-    const searchResult = services.searchResult;
-    this.setState({ recentSearch,searchResult });
+    // We're going to mock this value for now...
+    // The recentSearch array should come from the wrapper...
+    // The searchResult should come only after the user performs a search...
+    const recentSearch = this.state.recentSearch;
+    const searchResult = this.state.searchResult;
+    this.setState({ recentSearch, searchResult });
   }
 
   render() {
-    return(
+    return (
       <section className="section-album">
-        <RecentSearch albums={ this.state.recentSearch }/>
-        <SearchResult albums={ this.state.searchResult } />
+        <RecentSearch albums={this.state.recentSearch} />
+        <SearchResult albums={this.state.searchResult} />
       </section>
     );
   }

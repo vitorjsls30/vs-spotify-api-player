@@ -10,7 +10,7 @@ class RecentSearch extends React.Component {
         );
       });
     } else {
-      return (<p className="artist-name">No recent searched items...</p>);
+      return (<p className="artist-name">Nenhum item buscado recentemente...</p>);
     }
   }
 
