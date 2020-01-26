@@ -12,25 +12,47 @@ class App extends Component {
 
     this.state = {
       search: {
-        term: ''
+        term: '',
+        searchResult: []
       }
     }
   }
 
   onSearchTermChange(term) {
-    // We use the spotify-wrapper to search for the given term
+    let mockResult = []
+    // We'll use the spotify-wrapper to search for the given term
+    // for now, we're just mocking the behavior for our list
+    if (term != '') {
+      mockResult = [
+        {
+          id: 1,
+          name: 'mocked-album',
+          artist: 'mocked-artist',
+        },
+        {
+          id: 2,
+          name: 'mocked-album-2',
+          artist: 'mocked-artist-2',
+        },
+        {
+          id: 3,
+          name: 'mocked-album-3',
+          artist: 'mocked-artist-3',
+        },
+      ];
+    }
     // We then set the returned search results into the App state
-    this.setState({ search: { term } }, () => {
-        console.log('State setted...', this.state);
-      });
-    // Album section renders any given changes in the search result
+    // Then, AlbumSection renders any given changes in the search result
+    this.setState({
+      search: { term, searchResult: mockResult }
+    });
   }
 
   render() {
     return (<div>
       <SideBar />
       <SearchBar onSearchTermChange={this.onSearchTermChange.bind(this)} />
-      <AlbumSection />
+      <AlbumSection searchResult={this.state.search.searchResult} />
     </div>);
   }
 }

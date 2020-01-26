@@ -7,13 +7,7 @@ import wrapperIntegration from "../../services";
 class AlbumSection extends React.Component {
   constructor(props) {
     super(props);
-
     this.wrapper = new wrapperIntegration().wrapper;
-
-    this.state = {
-      recentSearch: [],
-      searchResult: []
-    };
   }
 
   validateWrapper() {
@@ -33,20 +27,13 @@ class AlbumSection extends React.Component {
 
   componentDidMount() {
     this.validateWrapper();
-
-    // We're going to mock this value for now...
-    // The recentSearch array should come from the wrapper...
-    // The searchResult should come only after the user performs a search...
-    const recentSearch = this.state.recentSearch;
-    const searchResult = this.state.searchResult;
-    this.setState({ recentSearch, searchResult });
   }
 
   render() {
     return (
       <section className="section-album">
-        <RecentSearch albums={this.state.recentSearch} />
-        <SearchResult albums={this.state.searchResult} />
+        <RecentSearch albums={this.props.recentSearch} />
+        <SearchResult albums={this.props.searchResult} />
       </section>
     );
   }

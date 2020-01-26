@@ -4,14 +4,14 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
-    this.onSearchTermChange = props.onSearchTermChange;
+    // this.onSearchTermChange = props.onSearchTermChange;
   }
 
   filterSearch(e) {
     const term = e.target.value;
     console.log('searching term: ', term);
     console.log('calling onSearchTermChange...');
-    this.onSearchTermChange(term);
+    this.props.onSearchTermChange(term);
   }
 
   render() {
