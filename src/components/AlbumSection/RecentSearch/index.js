@@ -2,6 +2,10 @@ import React from 'react';
 import AlbumItem from './AlbumItem';
 
 class RecentSearch extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   renderAlbums(albums) {
     if (albums.length) {
       return albums.map(album => {
@@ -19,7 +23,7 @@ class RecentSearch extends React.Component {
       <div className="items-block">
         <p className="section-title">&Aacute;lbuns buscados recentemente</p>
         <div className="album-container">
-          {this.renderAlbums(this.props.albums)}
+          {this.renderAlbums(this.props.albums || [])}
         </div>
       </div>
     );
