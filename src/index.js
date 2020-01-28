@@ -42,31 +42,16 @@ class App extends Component {
   onSearchTermChange(term) {
     let mockResult = []
     // We'll use the spotify-wrapper to search for the given term
-    // for now, we're just mocking the behavior for our list
     if (term != '') {
-      mockResult = [
-        {
-          id: 1,
-          name: 'mocked-album',
-          artist: 'mocked-artist',
-        },
-        {
-          id: 2,
-          name: 'mocked-album-2',
-          artist: 'mocked-artist-2',
-        },
-        {
-          id: 3,
-          name: 'mocked-album-3',
-          artist: 'mocked-artist-3',
-        },
-      ];
+      this.state.spotifyWrapper.search.query(term, 'artist')
+        .then(data => {
+          this.setState({
+            search: { term, searchResult: data }
+          });
+        })
+        .catch(err => console.log(`Err: ${err}`));
     }
-    // We then set the returned search results into the App state
     // Then, AlbumSection renders any given changes in the search result
-    this.setState({
-      search: { term, searchResult: mockResult }
-    });
   }
 
   render() {
