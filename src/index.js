@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import SideBar from './components/SideBar';
 import SearchBar from './components/SearchBar';
 import AlbumSection from './components/AlbumSection';
+import spotifyWrapper from './services';
 
 import './style.css';
 
@@ -13,10 +14,30 @@ class App extends Component {
     this.state = {
       search: {
         term: '',
-        searchResult: []
-      }
+        searchResult: [],
+      },
+      spotifyWrapper: spotifyWrapper
     }
   }
+
+  componentDidMount() {
+    this.validateWrapper();
+  }
+
+  validateWrapper() {
+    const wrapper = this.state.spotifyWrapper;
+    wrapper.session.getUriParams();
+    if (
+      wrapper.session.checkTokenExpiration() ||
+      !wrapper.session.getoAuthState("access_token")
+    ) {
+      console.log("Authorizing....");
+      wrapper.session.authorize();
+    } else {
+      console.log("Authorized!");
+    }
+  }
+
 
   onSearchTermChange(term) {
     let mockResult = []
