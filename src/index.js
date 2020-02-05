@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import SideBar from './components/SideBar';
-import SearchBar from './components/SearchBar';
-import AlbumSection from './components/AlbumSection';
-import spotifyWrapper from './services';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import SideBar from "./components/SideBar";
+import SearchBar from "./components/SearchBar";
+import AlbumSection from "./components/AlbumSection";
+import spotifyWrapper from "./services";
+import { debounce } from "lodash";
 
-import './style.css';
+import "./style.css";
 
 class App extends Component {
   constructor(props) {
@@ -13,11 +14,11 @@ class App extends Component {
 
     this.state = {
       search: {
-        term: '',
-        searchResult: [],
+        term: "",
+        searchResult: []
       },
       spotifyWrapper: spotifyWrapper
-    }
+    };
   }
 
   componentDidMount() {
@@ -38,12 +39,10 @@ class App extends Component {
     }
   }
 
-
   onSearchTermChange(term) {
-    let mockResult = []
-    // We'll use the spotify-wrapper to search for the given term
-    if (term != '') {
-      this.state.spotifyWrapper.search.query(term, 'album')
+    if (term != "") {
+      this.state.spotifyWrapper.search
+        .query(term, "album")
         .then(data => {
           if (data.albums.items) {
             this.setState({
@@ -53,17 +52,22 @@ class App extends Component {
         })
         .catch(err => console.log(`Err: ${err}`));
     }
-    // Then, AlbumSection renders any given changes in the search result
   }
 
   render() {
-    return (<div>
-      <SideBar />
-      <SearchBar onSearchTermChange={this.onSearchTermChange.bind(this)} />
-      <AlbumSection searchResult={this.state.search.searchResult} />
-    </div>);
+    const searchTerm = debounce(term => {
+      this.onSearchTermChange(term);
+    }, 500);
+
+    return (
+      <div>
+        <SideBar />
+        <SearchBar onSearchTermChange={ searchTerm } />
+        <AlbumSection searchResult={ this.state.search.searchResult } />
+      </div>
+    );
   }
 }
 
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 root ? ReactDOM.render(<App />, root) : false;
