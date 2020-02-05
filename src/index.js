@@ -43,11 +43,13 @@ class App extends Component {
     let mockResult = []
     // We'll use the spotify-wrapper to search for the given term
     if (term != '') {
-      this.state.spotifyWrapper.search.query(term, 'artist')
+      this.state.spotifyWrapper.search.query(term, 'album')
         .then(data => {
-          this.setState({
-            search: { term, searchResult: data }
-          });
+          if (data.albums.items) {
+            this.setState({
+              search: { term, searchResult: data.albums.items }
+            });
+          }
         })
         .catch(err => console.log(`Err: ${err}`));
     }
