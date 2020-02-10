@@ -23,7 +23,7 @@ class RecentSearch extends React.Component {
       <div className="items-block">
         <p className="section-title">&Aacute;lbuns buscados recentemente</p>
         <div className="album-container">
-          {this.renderAlbums(this.props.albums || [])}
+          {this.renderAlbums(this.props.albums)}
         </div>
       </div>
     );

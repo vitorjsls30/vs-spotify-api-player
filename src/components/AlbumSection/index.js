@@ -11,8 +11,8 @@ class AlbumSection extends React.Component {
   render() {
     return (
       <section className="section-album">
-        <RecentSearch albums={this.props.recentSearch} />
-        <SearchResult albums={this.props.searchResult} />
+        <RecentSearch albums={this.props.recentSearch || []} />
+        <SearchResult albums={this.props.searchResult || []} />
       </section>
     );
   }

@@ -23,7 +23,7 @@ class SearchResult extends React.Component {
       <div className="items-block" style={{ visibility: visible }}>
         <p className="section-title">Resultados para "Busca"</p>
         <div className="search-result">
-          {this.renderAlbums(this.props.albums || [])}
+          {this.renderAlbums(this.props.albums)}
         </div>
       </div>
     );

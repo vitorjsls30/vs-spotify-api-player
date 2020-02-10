@@ -14,8 +14,9 @@ class App extends Component {
 
     this.state = {
       search: {
-        term: "",
-        searchResult: []
+        term: '',
+        searchResult: [],
+        recentSearch: []
       },
       spotifyWrapper: spotifyWrapper
     };
@@ -36,6 +37,7 @@ class App extends Component {
       wrapper.session.authorize();
     } else {
       console.log("Authorized!");
+      this.getSearchHistory();
     }
   }
 
@@ -46,11 +48,32 @@ class App extends Component {
         .then(data => {
           if (data.albums.items) {
             this.setState({
-              search: { term, searchResult: data.albums.items }
+              search: { ...this.state.search, term, searchResult: data.albums.items }
+            }, () => {
+              this.state.spotifyWrapper.cache.storeItem({
+                search: this.state.search.term,
+                type: 'album',
+                response: data
+              });
             });
           }
         })
         .catch(err => console.log(`Err: ${err}`));
+    }
+  }
+
+  getSearchHistory() {
+    const history = this.state.spotifyWrapper.cache.getHistory() || [];
+    if(history.length) {
+      const lastSearch = history[0].response.albums.items;
+      this.setState((state) => {
+        return {
+          search: {
+            ...state.search,
+            recentSearch: lastSearch
+          }
+        }
+      });
     }
   }
 
@@ -63,7 +86,8 @@ class App extends Component {
       <div>
         <SideBar />
         <SearchBar onSearchTermChange={ searchTerm } />
-        <AlbumSection searchResult={ this.state.search.searchResult } />
+        <AlbumSection searchResult={ this.state.search.searchResult } 
+        recentSearch={this.state.search.recentSearch}/>
       </div>
     );
   }
