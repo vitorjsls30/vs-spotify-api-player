@@ -87,7 +87,7 @@ class App extends Component {
         <SideBar />
         <SearchBar onSearchTermChange={ searchTerm } />
         <AlbumSection searchResult={ this.state.search.searchResult } 
-        recentSearch={this.state.search.recentSearch}/>
+        recentSearch={ this.state.search.recentSearch } term={ this.state.search.term }/>
       </div>
     );
   }

@@ -19,9 +19,11 @@ class SearchResult extends React.Component {
   }
   render() {
     const visible = this.props.albums.length ? 'visible' : 'hidden';
+    const { term } = this.props;
+    const termLabel = 'Resultados' + (term ? ` para "${term}"` : '');
     return (
       <div className="items-block" style={{ visibility: visible }}>
-        <p className="section-title">Resultados para "Busca"</p>
+        <p className="section-title">{ termLabel }</p>
         <div className="search-result">
           {this.renderAlbums(this.props.albums)}
         </div>
