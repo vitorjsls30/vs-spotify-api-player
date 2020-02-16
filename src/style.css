@@ -142,6 +142,59 @@ ul {
   justify-content: center;
 }
 
+/* section detail */
+.section-detail {
+  display: flex;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 0 10%;
+}
+
+.section-album-info {
+  border: solid 1px red;
+  width: 20%;
+}
+
+.section-album-tracks {
+  border: solid 1px blue;
+  width: 80%;
+}
+
+.album-tracks{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.track-number {
+  width: 5%;
+  font-size: 16px;
+  color: #999999;
+}
+
+.track-name {
+  width: 90%;
+  font-size: 16px;
+  color: #FAFAFA;
+}
+
+.track-duration {
+  width: 5%;
+  font-size: 16px;
+  color: #999999;
+}
+
+.section-goback {
+  margin: 0 auto;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.goback-btn {
+  font-size: 14px;
+  color: #FAFAFA;;
+}
+
 /* media types */
 @media screen and (min-width: 768px) {
   .album-container {
