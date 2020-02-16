@@ -151,36 +151,48 @@ ul {
 }
 
 .section-album-info {
-  border: solid 1px red;
   width: 20%;
+  display: flex;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-info div.album-name {
+  margin-top: 15px;
+}
+
+.album-info div.artist-name {
+  margin-top: 10px;
 }
 
 .section-album-tracks {
-  border: solid 1px blue;
   width: 80%;
 }
 
 .album-tracks{
+  font-size: 16px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-bottom: 15px;
 }
 
 .track-number {
-  width: 5%;
-  font-size: 16px;
+  width: 4%;
   color: #999999;
 }
 
 .track-name {
-  width: 90%;
-  font-size: 16px;
+  width: 92%;
   color: #FAFAFA;
 }
 
 .track-duration {
-  width: 5%;
-  font-size: 16px;
+  width: 4%;
   color: #999999;
 }
 
@@ -192,7 +204,11 @@ ul {
 
 .goback-btn {
   font-size: 14px;
-  color: #FAFAFA;;
+  color: #FAFAFA;
+}
+
+.goback-wrapper {
+  margin: 40px 0px 20px 0px; 
 }
 
 /* media types */
