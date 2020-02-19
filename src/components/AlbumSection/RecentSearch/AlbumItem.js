@@ -1,14 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AlbumItem = (props) => {
-    const { name, artist, images } = props.album;
+    const { name, artist, images, id } = props.album;
     const cover = images.length ? images[1].url : '';
+
     return(
-        <div>
-            <img className="album-cover" src={ cover } />
-            <p className="album-name">{ name }</p>
-            <p className="artist-name">{ artist }</p>
-          </div>
+        <Link to={`/${id}`} >
+            <div>
+                <img className="album-cover" src={ cover } />
+                <p className="album-name">{ name }</p>
+                <p className="artist-name">{ artist }</p>
+            </div>
+        </Link>
     );
 }
 

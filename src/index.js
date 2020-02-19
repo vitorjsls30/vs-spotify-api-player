@@ -3,8 +3,10 @@ import ReactDOM from "react-dom";
 import SideBar from "./components/SideBar";
 import SearchBar from "./components/SearchBar";
 import AlbumSection from "./components/AlbumSection";
+import Detail from './components/AlbumSection/Detail';
 import spotifyWrapper from "./services";
 import { debounce } from "lodash";
+import { BrowserRouter as Router, Switch, Route, useRouteMatch } from 'react-router-dom';
 
 import "./style.css";
 
@@ -84,10 +86,17 @@ class App extends Component {
 
     return (
       <div>
-        <SideBar />
-        <SearchBar onSearchTermChange={ searchTerm } />
-        <AlbumSection searchResult={ this.state.search.searchResult } 
-        recentSearch={ this.state.search.recentSearch } term={ this.state.search.term }/>
+        <Router>
+          <Switch>
+            <Route path={'/:albumId'} children={ <Detail/> } />
+            <Route path="/">
+              <SideBar />
+              <SearchBar onSearchTermChange={ searchTerm } />
+              <AlbumSection searchResult={ this.state.search.searchResult } 
+              recentSearch={ this.state.search.recentSearch } term={ this.state.search.term }/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   }
