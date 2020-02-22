@@ -7,7 +7,7 @@ import { debounce } from "lodash";
 
 import "./style.css";
 
-class Player extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -17,7 +17,7 @@ class Player extends Component {
         searchResult: [],
         recentSearch: []
       },
-      spotifyWrapper: spotifyWrapper
+      spotifyWrapper: spotifyWrapper()
     };
   }
 
@@ -91,4 +91,4 @@ class Player extends Component {
   }
 }
 
-export default Player;
+export default Home;

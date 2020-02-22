@@ -1,19 +1,15 @@
 import React from 'react';
-import {Switch, Route, useRouteMatch} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
-import Player from './Player';
+import Home from './Home';
 import Detail from './components/AlbumSection/Detail';
 
 function Routes() {
-  let { path } = useRouteMatch();
-
   return (
     <Switch>
-      <Route path={`/:albumId`}>
-        <Detail />
-      </Route>
+      <Route path={'/:albumId'} component={Detail} />
       <Route exact path="/">
-        <Player />
+        <Home />
       </Route>
     </Switch>
   );

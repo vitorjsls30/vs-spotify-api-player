@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AlbumItem = (props) => {
-    let { url } = useRouteMatch();
-
     const { name, artist, images, id } = props.album;
     const cover = images.length ? images[1].url : '';
 
