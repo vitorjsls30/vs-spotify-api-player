@@ -5,13 +5,15 @@ import Player from './Player';
 import Detail from './components/AlbumSection/Detail';
 
 function Routes() {
-  let match = useRouteMatch();
+  let { path } = useRouteMatch();
 
   return (
     <Switch>
-      <Route path="/" exact component={Player} />
-      <Route path={`${match.path}/:albumId`}>
+      <Route path={`/:albumId`}>
         <Detail />
+      </Route>
+      <Route exact path="/">
+        <Player />
       </Route>
     </Switch>
   );

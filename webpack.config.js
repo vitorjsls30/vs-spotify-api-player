@@ -10,11 +10,11 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        // publicPath: '/'
+        publicPath: '/'
     },
     devServer: {
         contentBase: path.join(__dirname, 'src'),
-        // historyApiFallback: true
+        historyApiFallback: true
     },
     plugins: [
         new CleanWebpackPlugin(),

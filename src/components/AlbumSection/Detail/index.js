@@ -1,15 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-class Detail extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return(
-      <div style={{color: '#FFF'}}>Yo! Album detail!!</div>
-    );
-  }
+function Detail() {
+  let { albumId } = useParams();
+  return(
+    <div style={{color: '#FFF'}}>Yo! Album detail!! ID: { albumId }</div>
+  );
 }
 
 export default Detail;

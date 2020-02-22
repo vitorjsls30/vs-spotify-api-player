@@ -2,14 +2,13 @@ import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 const AlbumItem = (props) => {
-    let match = useRouteMatch();
+    let { url } = useRouteMatch();
 
     const { name, artist, images, id } = props.album;
     const cover = images.length ? images[1].url : '';
 
     return(
-        // <Link to={`${match.url}/${id}`} >
-        <Link to={`/#${id}`} >
+        <Link to={`/${id}`} >
             <div>
                 <img className="album-cover" src={ cover } />
                 <p className="album-name">{ name }</p>
