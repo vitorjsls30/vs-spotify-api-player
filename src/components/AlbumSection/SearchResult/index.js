@@ -8,10 +8,12 @@ class SearchResult extends React.Component {
 
   renderAlbums(albums) {
     if (albums.length) {
-      return albums.map(album => {
-        return (
-          <SearchItem key={album.id} album={album} />
-        )
+      return albums.map((album, index) => {
+        if (index <= 5) {
+          return (
+            <SearchItem key={album.id} album={album} />
+          )
+        }
       });
     } else {
       return (<div><p className="artist-name">Nenhum resultado de busca...</p></div>)
