@@ -1,71 +1,95 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import ALbumInfo from './AlbumInfo';
 import spotifyWrapper from '../../../services';
 import AlbumInfo from './AlbumInfo';
+import AlbumTracks from './AlbumTracks';
 
 class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       spotiFyWrapper: spotifyWrapper(),
-      albumInfo: {
+      albumId: this.props.match.params.albumId || null,
+      info: {
         cover: null,
         name: null,
-        artist: null,
-        tracks: []
+        artist: null
       },
+      tracks: [],
       error: { status: null, message: null }
+    }
+
+    this.checkAlbumId();
+  }
+
+  checkAlbumId() {
+    if (!this.state.albumId) {
+      let error = { status: 404, message: 'No AlbumFound' };
+      this.handleError(error);
     }
   }
 
-  getAlbumInfo() {
-    let { albumId } = this.props.match.params || null;
+  handleError(error) {
+    // TODO: THIS METHOD SHOULD HELP US TO DECIDE IF WE
+    // DISPLAY AN ERROR MESSAGE OR NOT AT THE COMPONENT
+    this.setState((state) => {
+      return { ...state, error };
+    }, () => { console.log('NEW STATE AFTER ERROR', this.state) });
+  }
 
+  getAlbumTracks() {
+    let albumId = this.state.albumId;
     if (!albumId) {
-      this.setState((state) => {
-        return {
-          ...state,
-          error: { status: 500, message: 'No AlbumId parameter' }
+      return;
+    }
+
+    this.state.spotiFyWrapper.album.getTracks(albumId)
+      .then(tracks => {
+        console.log('TRACKS', tracks);
+        let { error } = tracks;
+        if(error) {
+          this.handleError(error);
+          return;
         }
-      }, () => { console.log('NEW STATE', this.state) });
-    }
-
-    if (albumId) {
-      this.state.spotiFyWrapper.album.getAlbum(albumId)
-        .then(album => {
-          console.log('Info', album);
-          let { error } = album;
-          if (error) {
-            this.setState((state) => {
-              return { ...state, error }
-            }, () => { console.log('ERROR AT GETALBUM - NEW STATE', this.state) });
-
-            return;
-          }
-          console.log('BEFORE SETSTATE');
-          this.setState(state => {
-            return {
-              ...state,
-              albumInfo: {
-                cover: album.images[1].url || null,
-                name: album.name,
-                artist: album.artists[0].name,
-                tracks: []
-              }
-            }
-          }, () => {
-            console.log('AFTER GETALBUM', this.state.albumInfo);
-          });
+        this.setState(state => {
+          return { ...state, tracks: tracks.items }
         });
+      });
+
+  }
+
+  getAlbumInfo() {
+    let albumId = this.state.albumId;
+    if (!albumId) {
+      return;
     }
+    this.state.spotiFyWrapper.album.getAlbum(albumId)
+      .then(album => {
+        console.log('ALBUM', album);
+        let { error } = album;
+        if (error) {
+          this.handleError(error);
+          return;
+        }
+
+        this.setState(state => {
+          return {
+            ...state,
+            info: {
+              cover: album.images[1].url || null,
+              name: album.name,
+              artist: album.artists[0].name
+            }
+          }
+        });
+      });
   }
 
   componentDidMount() {
     // TODO: Now we use the spotifyWrapper and get the ALbumInfo...
-    console.log(`AlbumId: ${this.props.match.params.albumId}`);
     this.getAlbumInfo();
+    this.getAlbumTracks();
   }
 
   render() {
@@ -82,24 +106,10 @@ class Detail extends Component {
         </section>
         <section className="section-detail">
           <section className="section-album-info">
-            { <AlbumInfo albumInfo={this.state.albumInfo} />}
+            { <AlbumInfo info={this.state.info} />}
           </section>
           <section className="section-album-tracks">
-            <div className="album-tracks">
-              <div className="track-number"><span>1.</span></div>
-              <div className="track-name"><span>Name</span></div>
-              <div className="track-duration"><span>3:00</span></div>
-            </div>
-            <div className="album-tracks">
-              <div className="track-number"><span>1.</span></div>
-              <div className="track-name"><span>Name</span></div>
-              <div className="track-duration"><span>3:00</span></div>
-            </div>
-            <div className="album-tracks">
-              <div className="track-number"><span>1.</span></div>
-              <div className="track-name"><span>Name</span></div>
-              <div className="track-duration"><span>3:00</span></div>
-            </div>
+            { <AlbumTracks tracks={this.state.tracks} />}
           </section>
         </section>
       </div>

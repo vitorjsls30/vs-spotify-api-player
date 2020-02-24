@@ -1,14 +1,14 @@
 import React from 'react';
 
 function AlbumInfo(props) {
-  if (!props.albumInfo) {
+  if (!props.info) {
     return (
       <div className="album-info">
         <div className="album-name">Ops! No Album was found. Did you forget something? ;)</div>
       </div>
     );
   }
-  let { cover, name, artist } = props.albumInfo;
+  let { cover, name, artist } = props.info;
 
   return (
     <div className="album-info">
