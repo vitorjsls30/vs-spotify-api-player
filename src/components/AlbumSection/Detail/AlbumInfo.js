@@ -1,4 +1,5 @@
 import React from 'react';
+import Player from '../Player';
 
 function AlbumInfo(props) {
   if (!props.info) {
@@ -9,7 +10,7 @@ function AlbumInfo(props) {
     );
   }
   let { cover, name, artist } = props.info;
-
+  let currentTrack = props.currentTrack;
   return (
     <div className="album-info">
       <div className="detail-cover">
@@ -17,6 +18,7 @@ function AlbumInfo(props) {
       </div>
       <div className="album-name">{ name }</div>
       <div className="artist-name">{ artist }</div>
+      <Player src={currentTrack} />
     </div>
   );
 }

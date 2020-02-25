@@ -17,8 +17,15 @@ class Detail extends Component {
         artist: null
       },
       tracks: [],
+      currentTrack: {
+        id: null,
+        track: null
+      },
+      activeTrack: null,
       error: { status: null, message: null }
     }
+
+    this.onTrackSelect = this.onTrackSelect.bind(this);
 
     this.checkAlbumId();
   }
@@ -46,17 +53,22 @@ class Detail extends Component {
 
     this.state.spotiFyWrapper.album.getTracks(albumId)
       .then(tracks => {
-        console.log('TRACKS', tracks);
         let { error } = tracks;
         if(error) {
           this.handleError(error);
           return;
         }
         this.setState(state => {
-          return { ...state, tracks: tracks.items }
+          let { id, preview_url } = tracks.items[0];
+          return { ...state, 
+            tracks: tracks.items, 
+            currentTrack: {
+              id,
+              track: preview_url
+            }
+          };
         });
       });
-
   }
 
   getAlbumInfo() {
@@ -66,7 +78,6 @@ class Detail extends Component {
     }
     this.state.spotiFyWrapper.album.getAlbum(albumId)
       .then(album => {
-        console.log('ALBUM', album);
         let { error } = album;
         if (error) {
           this.handleError(error);
@@ -84,6 +95,21 @@ class Detail extends Component {
           }
         });
       });
+  }
+
+  onTrackSelect(track, id) {
+    this.setState(state => {
+      return {
+        ...state,
+        currentTrack: { track, id }
+      }
+    });
+
+    let player = document.getElementById('audio-player');
+    if(!player.hasAttribute('autoplay')) {
+      let autoplayAtt = document.createAttribute('autoplay');
+      document.getElementById('audio-player').setAttributeNode(autoplayAtt);
+    }
   }
 
   componentDidMount() {
@@ -106,10 +132,10 @@ class Detail extends Component {
         </section>
         <section className="section-detail">
           <section className="section-album-info">
-            { <AlbumInfo info={this.state.info} />}
+            { <AlbumInfo info={this.state.info} currentTrack={ this.state.currentTrack.track } />}
           </section>
           <section className="section-album-tracks">
-            { <AlbumTracks tracks={this.state.tracks} />}
+            { <AlbumTracks tracks={this.state.tracks} onTrackSelect={ this.onTrackSelect }/>}
           </section>
         </section>
       </div>

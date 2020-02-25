@@ -27,13 +27,13 @@ function AlbumTracks(props) {
   }
 
   return tracks.map(track => {
-    let { id, track_number, name, duration_ms} = track;
+    let { id, track_number, name, duration_ms, preview_url} = track;
     duration_ms = formatDuration(duration_ms);
     return (
       <div className="album-tracks" key={ id }>
         <div className="track-number"><span>{ track_number }.</span></div>
-        <div className="track-name"><span>{ name }</span></div>
-        <div className="track-duration"><span>{ duration_ms }</span></div>
+        <div className="track-name"><span id={`track-${id}`}onClick={() => props.onTrackSelect(preview_url, id)}>{ name }</span></div>
+        <div className="track-duration"><span id={`duration-${id}`}>{ duration_ms }</span></div>
       </div>
     );
   });
