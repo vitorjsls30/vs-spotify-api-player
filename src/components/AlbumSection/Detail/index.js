@@ -18,6 +18,7 @@ class Detail extends Component {
       },
       tracks: [],
       currentTrack: {
+        previous: null,
         id: null,
         track: null
       },
@@ -54,18 +55,15 @@ class Detail extends Component {
     this.state.spotiFyWrapper.album.getTracks(albumId)
       .then(tracks => {
         let { error } = tracks;
-        if(error) {
+        if (error) {
           this.handleError(error);
           return;
         }
         this.setState(state => {
           let { id, preview_url } = tracks.items[0];
-          return { ...state, 
-            tracks: tracks.items, 
-            currentTrack: {
-              id,
-              track: preview_url
-            }
+          return {
+            ...state,
+            tracks: tracks.items,
           };
         });
       });
@@ -99,21 +97,34 @@ class Detail extends Component {
 
   onTrackSelect(track, id) {
     this.setState(state => {
+      let currentId = state.currentTrack.id;
+      let previousId = currentId || null
       return {
         ...state,
-        currentTrack: { track, id }
+        currentTrack: { track, id, previous: previousId }
       }
+    }, () => {
+      let player = document.getElementById('audio-player');
+      if (!player.hasAttribute('autoplay')) {
+        let autoplayAtt = document.createAttribute('autoplay');
+        document.getElementById('audio-player').setAttributeNode(autoplayAtt);
+      }
+
+      let previous = this.state.currentTrack.previous;
+      let current = this.state.currentTrack.id;
+      if (previous !== current && previous != null) {
+        const previousNameElem = document.getElementById(`track-${previous}`);
+        const previousDurationElem = document.getElementById(`duration-${previous}`);
+        previousNameElem.classList.toggle('active-track');
+        previousDurationElem.classList.toggle('active-track');
+      }
+      document.getElementById(`track-${current}`).classList.add('active-track');
+      document.getElementById(`duration-${current}`).classList.add('active-track');
     });
 
-    let player = document.getElementById('audio-player');
-    if(!player.hasAttribute('autoplay')) {
-      let autoplayAtt = document.createAttribute('autoplay');
-      document.getElementById('audio-player').setAttributeNode(autoplayAtt);
-    }
   }
 
   componentDidMount() {
-    // TODO: Now we use the spotifyWrapper and get the ALbumInfo...
     this.getAlbumInfo();
     this.getAlbumTracks();
   }
@@ -132,10 +143,10 @@ class Detail extends Component {
         </section>
         <section className="section-detail">
           <section className="section-album-info">
-            { <AlbumInfo info={this.state.info} currentTrack={ this.state.currentTrack.track } />}
+            {<AlbumInfo info={this.state.info} currentTrack={this.state.currentTrack.track} />}
           </section>
           <section className="section-album-tracks">
-            { <AlbumTracks tracks={this.state.tracks} onTrackSelect={ this.onTrackSelect }/>}
+            {<AlbumTracks tracks={this.state.tracks} onTrackSelect={this.onTrackSelect} />}
           </section>
         </section>
       </div>

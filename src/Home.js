@@ -32,10 +32,8 @@ class Home extends Component {
       wrapper.session.checkTokenExpiration() ||
       !wrapper.session.getoAuthState("access_token")
     ) {
-      console.log("Authorizing....");
       wrapper.session.authorize();
     } else {
-      console.log("Authorized!");
       this.getSearchHistory();
     }
   }
