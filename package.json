@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
-    "build": "webpack"
+    "dev": "webpack-dev-server --open --config webpack.config.dev.js",
+    "start": "node ./src/server.js",
+    "build": "./node_modules/.bin/webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,11 @@
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
