@@ -3,14 +3,10 @@ import React, { Component} from 'react';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-
-    // this.onSearchTermChange = props.onSearchTermChange;
   }
 
   filterSearch(e) {
     const term = e.target.value;
-    console.log('searching term: ', term);
-    console.log('calling onSearchTermChange...');
     this.props.onSearchTermChange(term);
   }
 

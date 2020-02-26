@@ -9,10 +9,12 @@ module.exports = {
         app: './src/index.js',
     },
     output: {
-        path: path.join(__dirname, 'dist')
+        path: path.join(__dirname, 'dist'),
+        publicPath: '/'
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist')
+        contentBase: path.join(__dirname, 'src'),
+        historyApiFallback: true
     },
     plugins: [
         new CleanWebpackPlugin(),

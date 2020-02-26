@@ -8,10 +8,12 @@ class RecentSearch extends React.Component {
 
   renderAlbums(albums) {
     if (albums.length) {
-      return albums.map(album => {
-        return (
-          <AlbumItem key={album.id} album={album} />
-        );
+      return albums.map((album, index) => {
+        if (index <= 5) {
+          return (
+            <AlbumItem key={album.id} album={album} />
+          );
+        }
       });
     } else {
       return (<p className="artist-name">Nenhum item buscado recentemente...</p>);
@@ -23,7 +25,7 @@ class RecentSearch extends React.Component {
       <div className="items-block">
         <p className="section-title">&Aacute;lbuns buscados recentemente</p>
         <div className="album-container">
-          {this.renderAlbums(this.props.albums || [])}
+          {this.renderAlbums(this.props.albums)}
         </div>
       </div>
     );
