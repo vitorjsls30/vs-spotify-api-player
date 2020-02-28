@@ -225,12 +225,23 @@ ul {
 }
 
 /* signin section */
-.signin-greet {
+.signin {
+  height: 100vh;
+  background: url(../assets/concert-bkg.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.section-greet {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
   float: right;
   width: 50%;
+  height: 100vh;
+  border-left: solid 1px #1ED760;
 }
 
 .signin-message {
