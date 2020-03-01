@@ -16,12 +16,24 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-text {
   color: #FAFAFA;
 }
 
 .secondary-text {
   color: #999999;
+}
+
+.highlight-text {
+  color: #1ED760;
+}
+
+.font-20 {
+  font-size: 20px;
 }
 
 /* sidebar */
@@ -241,11 +253,25 @@ ul {
   float: right;
   width: 50%;
   height: 100vh;
-  border-left: solid 1px #1ED760;
+  border-left: solid 2px #1ED760;
 }
 
 .signin-message {
+  text-align: center;
   color: #999999;
+}
+
+.signin-message div.message-item {
+  padding-bottom: 10px;
+}
+
+.sign-btn {
+  color: #FFFFFF;
+  background-color: #1ED760;
+  padding: 10px 20px;
+  margin-top: 10px; 
+  border-radius: 12px;
+  cursor: pointer;
 }
 
 /* media types */
