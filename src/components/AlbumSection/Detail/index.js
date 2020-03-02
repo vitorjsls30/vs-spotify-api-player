@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch, withRouter } from 'react-router-dom';
 
 import spotifyWrapper from '../../../services';
 import AlbumInfo from './AlbumInfo';
@@ -128,13 +128,15 @@ class Detail extends Component {
     this.getAlbumInfo();
     this.getAlbumTracks();
   }
-
+  
   render() {
+    let { url } = this.props.match;
+    let rootUrl = url.indexOf(this.state.albumId) > -1 ? url.split('/')[1] : 'Dashboard';
     return (
       <div>
         <section className="section-goback">
           <div className="goback-wrapper">
-            <Link to='/'>
+            <Link to={`/${rootUrl}`}>
               <span className="goback-btn">
                 &lt; Voltar
                   </span>
@@ -155,4 +157,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail;
+export default withRouter(Detail);

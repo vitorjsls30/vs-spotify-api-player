@@ -7,7 +7,7 @@ const spotifyWrapper = () => {
         wrapperInstance = new spotifyApiWrapper({
             clientId: 'a3909a54308c4cb780b07d305e797cb6',
             // redirectUri: 'https://vs-spotify-player.herokuapp.com',
-            redirectUri: 'http://localhost:8080',
+            redirectUri: 'http://localhost:8080/Dashboard',
             useLocalStorage: true
         });
         return wrapperInstance;
