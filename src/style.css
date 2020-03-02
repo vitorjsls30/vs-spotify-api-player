@@ -6,6 +6,13 @@
   border: none;
   outline: none;
   font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #161616;
+}
+
+input[type=text] {
   background-color: #161616;
 }
 
@@ -16,12 +23,32 @@ ul {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-text {
   color: #FAFAFA;
 }
 
 .secondary-text {
   color: #999999;
+}
+
+.highlight-text {
+  color: #1ED760;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-25 {
+  font-size: 25px;
 }
 
 /* sidebar */
@@ -224,6 +251,75 @@ ul {
   margin: 30px 0px 20px 0px; 
 }
 
+/* signin section */
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background: url(../assets/concert-bkg.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.opacity-layer {
+  display: flex; 
+  position:absolute;
+  align-items: center;
+  background-color: #161616;
+  height: 100vh;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.section-greet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  position: relative;
+}
+
+.signin-message {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 13px;
+}
+
+.message-item {
+  padding-bottom: 10px;
+}
+
+.welcome {
+  font-size: 25px;
+  color: #FAFAFA;
+}
+
+.lg-repo {
+  display: none;
+}
+
+.mobile-repo {
+  padding-bottom: 10px; 
+  font-size: 15px;
+}
+
+.signin-btn-holder {
+  padding-top: 20px; 
+  font-size: 15px;
+}
+
+.sign-btn {
+  color: #FFFFFF;
+  background-color: #1ED760;
+  padding: 10px 30px;
+  margin-top: 10px; 
+  border-radius: 12px;
+  cursor: pointer;
+}
+
 /* media types */
 @media screen and (min-width: 768px) {
   .album-container {
@@ -258,6 +354,23 @@ ul {
   .album-detail {
     margin: 0 0;
     text-align: center;
+  }
+
+  .signin-message {
+    font-size: 16px;
+  }
+
+  .mobile-repo {
+    display: none;
+  }
+
+  .lg-repo {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .signin-btn-holder {
+    font-size: 18px;
   }
 }
 
@@ -295,5 +408,28 @@ ul {
   .goback-wrapper {
     justify-content: flex-start;
     margin: 30px 0 20px 21px;
+  }
+
+  .signin {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .section-greet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    border-left: solid 2px #1ED760;
+    background-color: #161616;
+  }
+
+  .opacity-layer {
+    display: none;
+  }
+
+  .lg-repo {
+    font-size: 15px;
   }
 }
