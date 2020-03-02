@@ -355,6 +355,23 @@ a {
     margin: 0 0;
     text-align: center;
   }
+
+  .signin-message {
+    font-size: 16px;
+  }
+
+  .mobile-repo {
+    display: none;
+  }
+
+  .lg-repo {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .signin-btn-holder {
+    font-size: 18px;
+  }
 }
 
 @media screen and (min-width: 960px) {
