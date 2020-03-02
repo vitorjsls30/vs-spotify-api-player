@@ -410,13 +410,26 @@ a {
     margin: 30px 0 20px 21px;
   }
 
-  /* .section-greet {
+  .signin {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .section-greet {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    float: right;
     width: 50%;
     height: 100vh;
     border-left: solid 2px #1ED760;
-  } */
+    background-color: #161616;
+  }
+
+  .opacity-layer {
+    display: none;
+  }
+
+  .lg-repo {
+    font-size: 15px;
+  }
 }
