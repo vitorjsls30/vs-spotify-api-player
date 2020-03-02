@@ -39,6 +39,14 @@ a {
   color: #1ED760;
 }
 
+.font-13 {
+  font-size: 13px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
 .font-25 {
   font-size: 25px;
 }
@@ -270,17 +278,37 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0px;
-  position: absolute;
+  padding: 20px 10px;
+  position: relative;
 }
 
 .signin-message {
   text-align: center;
   color: #FFFFFF;
+  font-size: 13px;
 }
 
-.signin-message div.message-item {
+.message-item {
   padding-bottom: 10px;
+}
+
+.welcome {
+  font-size: 25px;
+  color: #FAFAFA;
+}
+
+.lg-repo {
+  display: none;
+}
+
+.mobile-repo {
+  padding-bottom: 10px; 
+  font-size: 15px;
+}
+
+.signin-btn-holder {
+  padding-top: 20px; 
+  font-size: 15px;
 }
 
 .sign-btn {
