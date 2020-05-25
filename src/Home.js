@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
+
+import { Provider } from 'react-redux';
+import store from './store';
+
 import SideBar from "./components/SideBar";
 import SearchBar from "./components/SearchBar";
 import AlbumSection from "./components/AlbumSection";
 import spotifyWrapper from "./services";
 import { debounce } from "lodash";
+
+import * as AlbumsActions from './store/actions/albums';
 
 import "./style.css";
 
@@ -63,14 +69,7 @@ class Home extends Component {
     const history = this.state.spotifyWrapper.cache.getHistory() || [];
     if(history.length) {
       const lastSearch = history[0].response.albums.items;
-      this.setState((state) => {
-        return {
-          search: {
-            ...state.search,
-            recentSearch: lastSearch
-          }
-        }
-      });
+      store.dispatch(AlbumsActions.loadRecentSearch(lastSearch));
     }
   }
 
@@ -81,9 +80,11 @@ class Home extends Component {
 
     return (
       <div>
-        <SideBar />
-        <SearchBar onSearchTermChange={ searchTerm } />
-        <AlbumSection searchResult={ this.state.search.searchResult } recentSearch={ this.state.search.recentSearch } term={ this.state.search.term } />
+        <Provider store={ store }>
+          <SideBar />
+          <SearchBar onSearchTermChange={ searchTerm } />
+          <AlbumSection searchResult={ this.state.search.searchResult } recentSearch={ this.state.search.recentSearch } term={ this.state.search.term } />
+        </Provider>
       </div>
     );
   }

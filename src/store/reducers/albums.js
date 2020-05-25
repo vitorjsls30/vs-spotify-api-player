@@ -1,8 +1,14 @@
 const initialState = {
+  term: '',
   recentSearch: [],  
-  albums: [],  
+  searchResult: [],  
 };
 
-export default function albums(state = initialState) {
-  return { recentSearch: state.recentSearch };
+export default function albums(state = initialState, action) {
+  console.log('ACTION RECEIVED...', action );
+  switch (action.type) {
+    case 'LOAD_RECENT_SEARCH':
+      return { ...state, recentSearch: action.lastSearch };
+  }
+  return state;
 }
