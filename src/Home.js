@@ -50,14 +50,12 @@ class Home extends Component {
         .query(term, "album")
         .then(data => {
           if (data.albums.items) {
-            this.setState({
-              search: { ...this.state.search, term, searchResult: data.albums.items }
-            }, () => {
-              this.state.spotifyWrapper.cache.storeItem({
-                search: this.state.search.term,
-                type: 'album',
-                response: data
-              });
+            const searchResult = data.albums.items;
+            store.dispatch(AlbumsActions.loadSearchResult(searchResult));
+            this.state.spotifyWrapper.cache.storeItem({
+              search: this.state.search.term,
+              type: 'album',
+              response: data
             });
           }
         })
