@@ -9,7 +9,7 @@ import AlbumSection from "./components/AlbumSection";
 import spotifyWrapper from "./services";
 import { debounce } from "lodash";
 
-import * as AlbumsActions from './store/actions/albums';
+import { loadRecentSearch, loadSearchResult} from './store/actions/albums';
 
 import "./style.css";
 
@@ -51,7 +51,7 @@ class Home extends Component {
         .then(data => {
           if (data.albums.items) {
             const searchResult = data.albums.items;
-            store.dispatch(AlbumsActions.loadSearchResult(searchResult));
+            store.dispatch(loadSearchResult(searchResult));
             this.state.spotifyWrapper.cache.storeItem({
               search: this.state.search.term,
               type: 'album',
@@ -67,7 +67,7 @@ class Home extends Component {
     const history = this.state.spotifyWrapper.cache.getHistory() || [];
     if(history.length) {
       const lastSearch = history[0].response.albums.items;
-      store.dispatch(AlbumsActions.loadRecentSearch(lastSearch));
+      store.dispatch(loadRecentSearch(lastSearch));
     }
   }
 
