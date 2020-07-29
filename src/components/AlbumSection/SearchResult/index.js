@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import SearchItem from './SearchItem';
 
 class SearchResult extends React.Component {
@@ -34,4 +36,8 @@ class SearchResult extends React.Component {
   }
 };
 
-export default SearchResult;
+const mapStateToProps = state => ({
+  albums: state.albums.searchResult
+});
+
+export default connect(mapStateToProps, null)(SearchResult) ;
