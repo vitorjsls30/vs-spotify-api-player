@@ -11,7 +11,7 @@ import { debounce } from "lodash";
 
 import { loadRecentSearch, loadSearchResult} from './store/actions/albums';
 
-import "./style.css";
+import "./style.scss";
 
 class Home extends Component {
   constructor(props) {
