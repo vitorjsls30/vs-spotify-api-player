@@ -23,7 +23,7 @@
 .detail-cover {
   width:200px; 
   height:200px; 
-  background-color: #999999;
+  background-color: $secondary-text;
 }
 
 .audio-player {
@@ -44,22 +44,22 @@
 }
 
 .track-number {
-  color: #999999;
+  color: $secondary-text;
 }
 
 .track-name {
   cursor: pointer;
   width: 92%;
-  color: #FAFAFA;
+  color: $primary-text;
   padding: 0 10px;
 }
 
 .active-track {
-  color: #1ED760;
+  color: $highlight-text;
 }
 
 .track-duration {
-  color: #999999;
+  color: $secondary-text;
 }
 
 .section-goback {
@@ -70,7 +70,7 @@
 
 .goback-btn {
   font-size: 14px;
-  color: #FAFAFA;
+  color: $primary-text;
 }
 
 .goback-wrapper {

@@ -8,6 +8,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
+$white: #FFFFFF;
+$primary-color: #161616;
+$primary-text: #FAFAFA;
+$secondary-text: #999999;
+$highlight-text: #1ED760;
+
 body {
   background-color: #161616;
 }
@@ -28,27 +34,15 @@ a {
 }
 
 .main-text {
-  color: #FAFAFA;
+  color: $primary-text;
 }
 
 .secondary-text {
-  color: #999999;
+  color: $secondary-text;
 }
 
 .highlight-text {
-  color: #1ED760;
-}
-
-.font-13 {
-  font-size: 13px;
-}
-
-.font-15 {
-  font-size: 15px;
-}
-
-.font-25 {
-  font-size: 25px;
+  color: $highlight-text;
 }
 
 @mixin media-md {

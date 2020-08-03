@@ -15,7 +15,7 @@
   display: flex; 
   position:absolute;
   align-items: center;
-  background-color: #161616;
+  background-color: $primary-color;
   height: 100vh;
   width: 100%;
   opacity: 0.9;
@@ -31,7 +31,7 @@
 
 .signin-message {
   text-align: center;
-  color: #FFFFFF;
+  color: $white;
   font-size: 13px;
 }
 
@@ -41,7 +41,7 @@
 
 .welcome {
   font-size: 25px;
-  color: #FAFAFA;
+  color: $primary-text;
 }
 
 .lg-repo {
@@ -59,8 +59,8 @@
 }
 
 .sign-btn {
-  color: #FFFFFF;
-  background-color: #1ED760;
+  color: $white;
+  background-color: $highlight-text;
   padding: 10px 30px;
   margin-top: 10px; 
   border-radius: 12px;

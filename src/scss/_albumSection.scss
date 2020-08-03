@@ -8,7 +8,7 @@
 
 .section-title {
   font-size: 16px;
-  color: #FAFAFA;
+  color: $primary-text;
 }
 
 .album-container {
@@ -36,16 +36,16 @@
 
 .album-name {
   font-size: 16px;
-  color: #FAFAFA;
+  color: $primary-text;
 }
 
 .artist-name {
   font-size: 14px;
-  color: #999999;
+  color: $secondary-text;
 }
 
 .album-cover {
-  background-color: #FAFAFA;
+  background-color: $primary-text;
   width: 90px;
   height: 90px;
 }
