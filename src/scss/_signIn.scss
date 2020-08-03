@@ -1,0 +1,68 @@
+/* signin section */
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background: url(../../assets/concert-bkg.jpg) center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.opacity-layer {
+  display: flex; 
+  position:absolute;
+  align-items: center;
+  background-color: #161616;
+  height: 100vh;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.section-greet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  position: relative;
+}
+
+.signin-message {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 13px;
+}
+
+.message-item {
+  padding-bottom: 10px;
+}
+
+.welcome {
+  font-size: 25px;
+  color: #FAFAFA;
+}
+
+.lg-repo {
+  display: none;
+}
+
+.mobile-repo {
+  padding-bottom: 10px; 
+  font-size: 15px;
+}
+
+.signin-btn-holder {
+  padding-top: 20px; 
+  font-size: 15px;
+}
+
+.sign-btn {
+  color: #FFFFFF;
+  background-color: #1ED760;
+  padding: 10px 30px;
+  margin-top: 10px; 
+  border-radius: 12px;
+  cursor: pointer;
+}

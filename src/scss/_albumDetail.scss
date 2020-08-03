@@ -1,0 +1,81 @@
+/* section detail */
+.section-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-info div.album-name {
+  margin-top: 15px;
+}
+
+.album-info div.artist-name {
+  margin-top: 10px;
+}
+
+.detail-cover {
+  width:200px; 
+  height:200px; 
+  background-color: #999999;
+}
+
+.audio-player {
+  margin-top: 15px;
+}
+
+.section-album-tracks {
+  width: 80%;
+  margin: 20px 0px 10px 0px;
+}
+
+.album-tracks{
+  font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.track-number {
+  color: #999999;
+}
+
+.track-name {
+  cursor: pointer;
+  width: 92%;
+  color: #FAFAFA;
+  padding: 0 10px;
+}
+
+.active-track {
+  color: #1ED760;
+}
+
+.track-duration {
+  color: #999999;
+}
+
+.section-goback {
+  margin: 0 auto;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.goback-btn {
+  font-size: 14px;
+  color: #FAFAFA;
+}
+
+.goback-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 30px 0px 20px 0px; 
+}

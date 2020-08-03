@@ -1,0 +1,18 @@
+/* search bar */
+
+.search-bar {
+  margin: 0 auto;
+  max-width: 80%;
+  overflow: hidden;
+}
+
+.search-holder {
+  margin-top: 60px;
+  border-bottom: solid 2px #999999;
+}
+
+.search-bar input {
+  width: 100%;
+  font-size: 24px; 
+  font-weight: bold;
+}

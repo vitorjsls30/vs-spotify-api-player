@@ -1,0 +1,113 @@
+/* media types */
+@include media-md {
+  .album-container {
+    margin-top: 20px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .album-cover {
+    width: 140px;
+    height: 140px;
+  }
+
+  .search-result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+    max-height: 372px;
+  }
+
+  .search-item {
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .album-detail {
+    margin: 0 0;
+    text-align: center;
+  }
+
+  .signin-message {
+    font-size: 16px;
+  }
+
+  .mobile-repo {
+    display: none;
+  }
+
+  .lg-repo {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .signin-btn-holder {
+    font-size: 18px;
+  }
+}
+
+@include media-lg {
+  .album-cover {
+    width: 180px;
+    height: 180px;
+  }
+
+  .search-result {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .search-item {
+    width: 15%;
+    padding: 0 17px 0 0;
+  }
+
+  .section-detail {
+    width: 80%;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .section-album-info {
+    width: 30%;
+  }
+
+  .section-album-tracks {
+    width: 70%;
+    margin: 0;
+  }
+
+  .goback-wrapper {
+    justify-content: flex-start;
+    margin: 30px 0 20px 21px;
+  }
+
+  .signin {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .section-greet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    border-left: solid 2px #1ED760;
+    background-color: #161616;
+  }
+
+  .opacity-layer {
+    display: none;
+  }
+
+  .lg-repo {
+    font-size: 15px;
+  }
+}

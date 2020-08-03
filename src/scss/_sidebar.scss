@@ -1,0 +1,22 @@
+/* sidebar */
+
+.sidebar {
+  width: 10%; 
+  height: 100%; 
+  float: left; 
+  position: absolute
+}
+
+.logo {
+  margin: 15px 15px;
+  width: 35px;
+  height: 35px;
+  background: #FFFFFF url(../../assets/spotify-logo.svg) center center/2.3em no-repeat;
+  border-radius: 50%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
