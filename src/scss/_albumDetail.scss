@@ -1,4 +1,3 @@
-/* section detail */
 .section-detail {
   display: flex;
   flex-direction: column;
@@ -10,14 +9,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.album-info div.album-name {
-  margin-top: 15px;
-}
-
-.album-info div.artist-name {
-  margin-top: 10px;
+  div.album-name {
+    margin-top: 15px;
+  }
+  
+  div.artist-name {
+    margin-top: 10px;
+  }
 }
 
 .detail-cover {
